@@ -1,3 +1,10 @@
+/**
+ * 二叉树核心：
+ * 1. Node 数据结构
+ * 2. root 根节点
+ * 3. insert 二叉树的创建
+ * 4. 中序遍历 <-> 排序
+ */
 class TNode {
     key: number;
     left: TNode | null;

@@ -1,8 +1,6 @@
 /**
- * 二分法查找
+ * 二分法查找核心：中间值
  */
-
-// 递归法查找
 function binarySearchRecursion<T>(arr: T[], key: T, start: number, end: number): number {
     if (start > end) {
         return -1;

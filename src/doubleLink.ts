@@ -1,3 +1,9 @@
+/**
+ * 双向列表核心：
+ * 1. Node 数据结构定义
+ * 2. head 头指针
+ * 3. length 长度
+ */
 class ENode<T> {
     value: T | undefined;
     next: ENode<T> | null;
@@ -11,16 +17,16 @@ class ENode<T> {
 
 class DoubleLink<T> {
     head: ENode<T>;
-    count: number;
+    length: number;
     constructor() {
         this.head = new ENode<T>();
-        this.count = 0;
+        this.length = 0;
     }
 
     push(value: T) {
         const node = new ENode(value);
 
-        const lastNode: ENode<T> | null = this.getElementAt(this.count - 1);
+        const lastNode: ENode<T> | null = this.getElementAt(this.length - 1);
         if (!lastNode) {
             node.prev = this.head;
             this.head.next = node;
@@ -29,11 +35,11 @@ class DoubleLink<T> {
             node.prev = lastNode;
             lastNode.next = node;
         }
-        return ++this.count;
+        return ++this.length;
     }
 
     pop() {
-        const lastNode = this.getElementAt(this.count - 1);
+        const lastNode = this.getElementAt(this.length - 1);
         if (!lastNode) {
             return;
         }
@@ -44,7 +50,7 @@ class DoubleLink<T> {
         lastNode.next = null;
         prevNode.next = null;
         
-        this.count--;
+        this.length--;
         return lastNode.value;
     }
 
@@ -61,11 +67,11 @@ class DoubleLink<T> {
             node.next.prev = node;
         }
 
-        return ++this.count;
+        return ++this.length;
     }
 
     getElementAt(index: number): ENode<T> | null {
-        if (index < 0 || index >= this.count) {
+        if (index < 0 || index >= this.length) {
             return null;
         }
 
@@ -78,7 +84,7 @@ class DoubleLink<T> {
         return current;
     }
     getSize(): number {
-        return this.count;
+        return this.length;
     }
 }
 

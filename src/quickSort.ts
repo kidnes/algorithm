@@ -28,8 +28,4 @@ function partition(arr: number[], left: number, right: number): number {
     return left;
 }
 
-// let arr = [19, 20, 17, 13, 28, 14, 23, 15];
-// quickSort(arr, 0, arr.length-1);
-// console.log(arr);
-
 export default quickSort;
